@@ -1,0 +1,34 @@
+{
+  "name": "@moviecast/hapi-endpoint",
+  "version": "1.0.0",
+  "description": "A plugin for hapi to automatically load in routes based on a file structure",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MovieCast/hapi-endpoint.git"
+  },
+  "keywords": [
+    "hapi",
+    "plugin",
+    "endpoint",
+    "routes",
+    "file",
+    "structure"
+  ],
+  "author": "Dizzy <itsdizzy40@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MovieCast/hapi-endpoint/issues"
+  },
+  "homepage": "https://github.com/MovieCast/hapi-endpoint#readme",
+  "dependencies": {
+    "file": "^0.2.2",
+    "path": "^0.12.7"
+  }
+}
