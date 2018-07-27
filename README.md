@@ -18,6 +18,7 @@ Start by adding the plugin to your existing server, an example is shown below.
 ```js
 // src/server.js
 
+const path = require('path');
 const Hapi = require('hapi');
 const server = new Hapi.Server();
 
