@@ -1,7 +1,7 @@
 {
   "name": "@moviecast/hapi-endpoint",
-  "version": "1.0.1",
-  "description": "A plugin for hapi to automatically load in routes based on a file structure",
+  "version": "2.0.0",
+  "description": "A plugin for hapi to add versioned endpoints based on the file structure.",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib"
@@ -16,6 +16,7 @@
   "keywords": [
     "hapi",
     "plugin",
+    "versioned",
     "endpoint",
     "routes",
     "file",
@@ -28,6 +29,10 @@
   },
   "homepage": "https://github.com/MovieCast/hapi-endpoint#readme",
   "dependencies": {
-    "file": "^0.2.2"
+    "glob": "^7.1.2",
+    "semver": "^5.5.0"
+  },
+  "devDependencies": {
+    "debug": "^3.1.0"
   }
 }
