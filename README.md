@@ -1,7 +1,7 @@
 # HAPI Endpoint Plugin
-[![Build Status](https://img.shields.io/travis/MovieCast/hapi-endpoint/master.svg?branch=master)](https://travis-ci.org/MovieCast/hapi-endpoint)
-[![Current Version](https://img.shields.io/npm/v/@moviecast/hapi-endpoint.svg)](https://www.npmjs.com/package/@moviecast/hapi-endpoint)
-[![Coverage Status](https://img.shields.io/coveralls/github/MovieCast/hapi-endpoint/master.svg)](https://coveralls.io/github/MovieCast/hapi-endpoint?branch=master)
+[![Build Status](https://travis-ci.org/MovieCast/hapi-endpoint.svg?branch=master)](https://travis-ci.org/MovieCast/hapi-endpoint)
+[![Current Version](https://badge.fury.io/js/%40moviecast%2Fhapi-endpoint.svg)](https://badge.fury.io/js/%40moviecast%2Fhapi-endpoint)
+[![Coverage Status](https://coveralls.io/repos/github/MovieCast/hapi-endpoint/badge.svg?branch=master)](https://coveralls.io/github/MovieCast/hapi-endpoint?branch=master)
 
 A plugin for hapi to add versioned endpoints based on the file structure.
 
