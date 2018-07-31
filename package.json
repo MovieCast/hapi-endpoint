@@ -7,7 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lab -a code -t 100 -L -v",
+    "test:coverage": "lab -c -a code -r html -o coverage/coverage.html",
+    "coveralls": "lab -r lcov | ./node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,10 @@
     "semver": "^5.5.0"
   },
   "devDependencies": {
-    "debug": "^3.1.0"
+    "code": "^5.2.0",
+    "coveralls": "^3.0.2",
+    "debug": "^3.1.0",
+    "hapi": "^17.5.2",
+    "lab": "^15.5.0"
   }
 }
