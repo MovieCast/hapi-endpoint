@@ -10,7 +10,7 @@ A plugin for hapi to add versioned endpoints based on the file structure.
 
 By default `hapi-endpoint` will scan any file in `endpoints/v*`, this can be changed in the options of the plugin.
 
-As an extra `hapi-endpoint` will also check the version of the application and add shortcuts to routes without the version in the prefix of the route. So if your api is version `1.0.0` and you have the file `endpoints/v1/auth/login.js` with path `/login` it will be prefixed with `v1/auth/login` and `/auth/login`.
+As an extra `hapi-endpoint` will also check the version of the application and add shortcuts to routes without the version in the prefix of the route. So if your api is version `1` and you have the file `endpoints/v1/auth/login.js` with path `/login` it will be prefixed with `v1/auth/login` and `/auth/login`. It is also possible to add an `api-version` header which specifies which version of the api you want to use.
 
 ## Installation
 `yarn add @moviecast/hapi-endpoint` or `npm install @moviecast/hapi-endpoint --save`
@@ -31,11 +31,14 @@ const server = new Hapi.Server();
             // The path to the endpoints directory (optional)
             path: path.join(__dirname, 'endpoints'), // Defaults to path.join(process.cwd(), 'endpoints')
 
+            // Specify the valid versions here (required)
+            validVersions: [1],
+
+            // The current application version (required), used as fallback on non versioned routes
+            version: 1,
+
             // An option to add a prefix before all your routes (optional)
             prefix: '/api', // Defaults to ''
-
-            // The current application version (optional)
-            version: '1.0.0', // Defaults to the version specified in package.json
         }
     });
 
