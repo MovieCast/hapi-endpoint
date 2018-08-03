@@ -1,0 +1,8 @@
+# Exclude everything
+*
+
+# Except the library itself
+!lib/**
+
+# And this file
+!.npmignore

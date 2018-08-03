@@ -21,28 +21,84 @@ beforeEach(async () => {
 
 describe('Plugin registration', () => {
 
-    it('should register properly', async () => {
+    it('should fail if no options are specified', async () => {
+
+        await expect(server.register({
+            plugin: require('../lib'),
+            options: {}
+        })).to.reject(Error, /Invalid plugin options/);
+    });
+
+    it('should fail if validVersions is not specified', async () => {
+
+        await expect(server.register({
+            plugin: require('../lib'),
+            options: {
+                version: 1
+            }
+        })).to.reject(Error, /Invalid plugin options/);
+    });
+
+    it('should fail if validversions is an empty array', async () => {
+
+        await expect(server.register({
+            plugin: require('../lib'),
+            options: {
+                validVersions: [],
+                version: 1
+            }
+        })).to.reject(Error, /Invalid plugin options/);
+    });
+
+    it('should fail if version is not specified', async () => {
+
+        await expect(server.register({
+            plugin: require('../lib'),
+            options: {
+                validVersions: [1]
+            }
+        })).to.reject(Error, /Invalid plugin options/);
+    });
+
+    it('should fail if version is not an element of validVersions', async () => {
+
+        await expect(server.register({
+            plugin: require('../lib'),
+            options: {
+                validVersions: [1],
+                version: 2
+            }
+        })).to.reject(Error, /Invalid plugin options/);
+    });
+
+    it('should succeed if all options are valid', async () => {
 
         expect(await server.register({
-            plugin: require('../lib')
+            plugin: require('../lib'),
+            options: {
+                path: `${__dirname}/endpoints`,
+                validVersions: [1, 2],
+                version: 1
+            }
         })).to.be.undefined();
     });
 });
 
 describe('Versioning', () => {
 
-    describe(' -> version 1 default', () => {
+    beforeEach(async () => {
 
-        beforeEach(async () => {
-
-            await server.register({
-                plugin: require('../lib'),
-                options: {
-                    path: `${__dirname}/endpoints`,
-                    version: '1.0.0'
-                }
-            });
+        await server.register({
+            plugin: require('../lib'),
+            options: {
+                path: `${__dirname}/endpoints`,
+                validVersions: [1, 2],
+                version: 1
+            }
         });
+    });
+
+    describe(' -> basic', () => {
 
         it('should prefix endpoints properly', async () => {
 
@@ -61,6 +117,16 @@ describe('Versioning', () => {
 
             expect(response2.statusCode).to.equal(200);
             expect(response2.result.version).to.equal(2);
+        });
+
+        it('should not load unsupported endpoints', async () => {
+
+            const response = await server.inject({
+                method: 'GET',
+                url: '/v3/status'
+            });
+
+            expect(response.statusCode).to.equal(404);
         });
 
         it('should not load faulty routes', async () => {
@@ -84,7 +150,11 @@ describe('Versioning', () => {
             expect(response.result.message).to.equal('This is route 1');
         });
 
-        it('should make v1 endpoints default', async () => {
+    });
+
+    describe(' -> header', () => {
+
+        it('should fall back to the version specified in options', async () => {
 
             const response = await server.inject({
                 method: 'GET',
@@ -94,30 +164,32 @@ describe('Versioning', () => {
             expect(response.statusCode).to.equal(200);
             expect(response.result.version).to.equal(1);
         });
-    });
 
-    describe(' -> version 2 default', () => {
-
-        beforeEach(async () => {
-
-            await server.register({
-                plugin: require('../lib'),
-                options: {
-                    path: `${__dirname}/endpoints`,
-                    version: '2.0.0'
-                }
-            });
-        });
-
-        it('should make v2 endpoints default', async () => {
+        it('should support the custom api-version header', async () => {
 
             const response = await server.inject({
                 method: 'GET',
-                url: '/status'
+                url: '/status',
+                headers: {
+                    'api-version': 2
+                }
             });
 
             expect(response.statusCode).to.equal(200);
             expect(response.result.version).to.equal(2);
+        });
+
+        it('should fail if an unsupported api-version is specified', async () => {
+
+            const response = await server.inject({
+                method: 'GET',
+                url: '/status',
+                headers: {
+                    'api-version': 3
+                }
+            });
+
+            expect(response.statusCode).to.equal(400);
         });
     });
 });
