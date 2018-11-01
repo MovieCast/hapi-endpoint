@@ -1,6 +1,6 @@
 {
   "name": "@moviecast/hapi-endpoint",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A plugin for hapi to add versioned endpoints based on the file structure.",
   "main": "lib/index.js",
   "directories": {

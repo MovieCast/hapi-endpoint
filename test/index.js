@@ -71,6 +71,18 @@ describe('Plugin registration', () => {
         })).to.reject(Error, /Invalid plugin options/);
     });
 
+    it('should fail if fileExtensions is an empty array', async () => {
+
+        await expect(server.register({
+            plugin: require('../lib'),
+            options: {
+                validVersions: [1],
+                version: 1,
+                fileExtensions: []
+            }
+        })).to.reject(Error, /Invalid plugin options/);
+    });
+
     it('should succeed if all options are valid', async () => {
 
         expect(await server.register({
@@ -191,6 +203,29 @@ describe('Versioning', () => {
 
             expect(response.statusCode).to.equal(400);
         });
+    });
+});
+
+describe('File Extensions', () => {
+
+    it('should be able to load routes from different file extensions', async () => {
+
+        await server.register({
+            plugin: require('../lib'),
+            options: {
+                path: `${__dirname}/endpoints`,
+                validVersions: [1],
+                version: 1,
+                fileExtensions: ['js', 'ext']
+            }
+        });
+
+        const response = await server.inject({
+            method: 'GET',
+            url: '/file'
+        });
+
+        expect(response.statusCode).to.equal(200);
     });
 });
 
