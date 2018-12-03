@@ -162,6 +162,17 @@ describe('Versioning', () => {
             expect(response.result.message).to.equal('This is route 1');
         });
 
+        it('should load routes out of an es6 module', async () => {
+
+            const response = await server.inject({
+                method: 'GET',
+                url: '/v1/es6'
+            });
+
+            expect(response.statusCode).to.equal(200);
+            expect(response.result.message).to.equal('Hi, this is an es6 route');
+        });
+
     });
 
     describe(' -> header', () => {
