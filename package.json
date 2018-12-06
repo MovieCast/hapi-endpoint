@@ -34,13 +34,18 @@
     "boom": "^7.2.0",
     "glob": "^7.1.2",
     "hoek": "^5.0.3",
-    "joi": "^13.5.2"
+    "joi": "^13.5.2",
+    "lodash": "^4.17.11",
+    "reflect-metadata": "^0.1.12"
   },
   "devDependencies": {
+    "@types/hapi": "^17.8.0",
+    "@types/lodash": "^4.14.119",
     "code": "^5.2.0",
     "coveralls": "^3.0.2",
     "debug": "^3.1.0",
     "hapi": "^17.5.2",
-    "lab": "^15.5.0"
+    "lab": "^15.5.0",
+    "typescript": "^3.2.1"
   }
 }
