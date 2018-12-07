@@ -12,6 +12,11 @@
   resolved "https://registry.yarnpkg.com/@types/catbox/-/catbox-10.0.3.tgz#6cbf87ddd35108b8d3945b0838794de8488a1cae"
   integrity sha512-f77b7+fhDLVD9d0dbprmCcAJ7wxipuQwN+8UNws33ZDlf+7G7NDgaBnrPUfXF9DGsfKQWdlzU3ZPLIrNEzqBqA==
 
+"@types/code@^4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@types/code/-/code-4.0.5.tgz#e7c051d01bbbc5d33642c2ec3aa3b2722901740b"
+  integrity sha512-k7gk4Bcu9YCvPD8pjqlY5wUulr12iFZYCtc8+Vh6mjkDgaoZ4i/IWVknDP74a8gkJR2r/wIA9iAX02b22L1ynQ==
+
 "@types/hapi@^17.8.0":
   version "17.8.0"
   resolved "https://registry.yarnpkg.com/@types/hapi/-/hapi-17.8.0.tgz#e1264613f4111aa1d74da8bea6a63b286a504ac5"
@@ -248,6 +253,11 @@ buffer-from@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.0.tgz#87fcaa3a298358e0ade6e442cfce840740d1ad04"
 
+buffer-from@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
+  integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
+
 call@5.x.x:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/call/-/call-5.0.1.tgz#ac1b5c106d9edc2a17af2a4a4f74dd4f0c06e910"
@@ -421,6 +431,13 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+debug@^2.6.0:
+  version "2.6.9"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
+  integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
+  dependencies:
+    ms "2.0.0"
+
 debug@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
@@ -451,7 +468,7 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
 
-diff@3.5.x:
+diff@3.5.x, diff@^3.1.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
 
@@ -952,6 +969,13 @@ kind-of@^3.0.2:
   dependencies:
     is-buffer "^1.1.5"
 
+lab-transform-typescript@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/lab-transform-typescript/-/lab-transform-typescript-3.0.1.tgz#c9a8adcc2bbc78dfc7f2e33bdb54bd37f15d4398"
+  integrity sha1-yaitzCu8eN/H8uM721S9N/FdQ5g=
+  dependencies:
+    debug "^2.6.0"
+
 lab@^15.5.0:
   version "15.5.0"
   resolved "https://registry.yarnpkg.com/lab/-/lab-15.5.0.tgz#13908f004ba1517650a4a7c38be29eee476adf97"
@@ -1012,6 +1036,11 @@ lru-cache@^4.0.1:
   dependencies:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
+
+make-error@^1.1.1:
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/make-error/-/make-error-1.3.5.tgz#efe4e81f6db28cadd605c70f29c831b58ef776c8"
+  integrity sha512-c3sIjNUow0+8swNwVpqoH4YCShKNFkMaw6oH1mNS2haDZQqkeZFlHS3dhoeEbKKmJB4vXpJucU6oH75aDYeE9g==
 
 mime-db@1.x.x, mime-db@~1.35.0:
   version "1.35.0"
@@ -1344,6 +1373,14 @@ source-map-support@0.5.x:
     buffer-from "^1.0.0"
     source-map "^0.6.0"
 
+source-map-support@^0.5.6:
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.9.tgz#41bc953b2534267ea2d605bccfa7bfa3111ced5f"
+  integrity sha512-gR6Rw4MvUlYy83vP0vxoVNzM6t8MUXqNuRsuBmBHQDu1Fh6X015FrLdgoDKcNdkwGubozq0P4N0Q37UyFVr1EA==
+  dependencies:
+    buffer-from "^1.0.0"
+    source-map "^0.6.0"
+
 source-map@0.6.x, source-map@^0.6.0:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
@@ -1484,6 +1521,20 @@ tough-cookie@~2.3.3:
   dependencies:
     punycode "^1.4.1"
 
+ts-node@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-7.0.1.tgz#9562dc2d1e6d248d24bc55f773e3f614337d9baf"
+  integrity sha512-BVwVbPJRspzNh2yfslyT1PSbl5uIk03EZlb493RKHN4qej/D06n1cEhjlOJG69oFsE7OT8XjpTUcYf6pKTLMhw==
+  dependencies:
+    arrify "^1.0.0"
+    buffer-from "^1.1.0"
+    diff "^3.1.0"
+    make-error "^1.1.1"
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    source-map-support "^0.5.6"
+    yn "^2.0.0"
+
 tunnel-agent@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
@@ -1599,3 +1650,8 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+yn@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/yn/-/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
+  integrity sha1-5a2ryKz0CPY4X8dklWhMiOavaJo=

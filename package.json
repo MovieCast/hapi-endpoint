@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "lab -a code -t 100 -L -v",
+    "test": "lab -a code -t 100 -L -v -S -T node_modules/lab-transform-typescript",
     "test:coverage": "lab -c -a code -r html -o coverage/coverage.html",
     "coveralls": "lab -r lcov | ./node_modules/.bin/coveralls"
   },
@@ -39,6 +39,7 @@
     "reflect-metadata": "^0.1.12"
   },
   "devDependencies": {
+    "@types/code": "^4.0.5",
     "@types/hapi": "^17.8.0",
     "@types/lodash": "^4.14.119",
     "code": "^5.2.0",
@@ -46,6 +47,8 @@
     "debug": "^3.1.0",
     "hapi": "^17.5.2",
     "lab": "^15.5.0",
+    "lab-transform-typescript": "^3.0.1",
+    "ts-node": "^7.0.1",
     "typescript": "^3.2.1"
   }
 }
