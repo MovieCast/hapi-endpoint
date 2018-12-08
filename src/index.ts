@@ -1,4 +1,4 @@
-export { Auth, Controller, Pre, Route, Validate } from './annotations';
+export { Auth, Controller, Payload, Pre, Route, Validate } from './annotations';
 export { IEndpointPluginOptions, IControllerOptions, IRouteOptions } from './interfaces';
 export { HttpMethod } from './enums';
 
