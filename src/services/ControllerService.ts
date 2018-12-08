@@ -20,11 +20,19 @@ export class ControllerService {
         }
     }
 
-    static setRoutes(target: Object, routes: Map<string, IRouteOptions>) {
+    static getRoutes(target: Object): IRouteOptions[] | undefined {
+        const routeMap = this.getRouteMap(target);
+
+        if(routeMap) {
+            return [ ...routeMap.values() ]
+        }
+    }
+
+    static setRouteMap(target: Object, routes: Map<string, IRouteOptions>) {
         Reflect.defineMetadata(ROUTES_KEY, new Map(routes), target);
     }
 
-    static getRoutes(target: Object): Map<string, IRouteOptions> | undefined {
+    static getRouteMap(target: Object): Map<string, IRouteOptions> | undefined {
         const routes = Reflect.getMetadata(ROUTES_KEY, target);
 
         if(routes) {
@@ -33,7 +41,7 @@ export class ControllerService {
     }
 
     static addRoute(target: Object, propertyName: string, route: IRouteOptions) {
-        let routes = this.getRoutes(target);
+        let routes = this.getRouteMap(target);
 
         if(!routes) {
             routes = new Map<string, IRouteOptions>();
@@ -41,11 +49,11 @@ export class ControllerService {
 
         routes.set(propertyName, route);
 
-        this.setRoutes(target, routes);
+        this.setRouteMap(target, routes);
     }
 
     static addRouteOptions(target: Object, propertyName: string, options: RouteOptions) {
-        let routes = this.getRoutes(target);
+        let routes = this.getRouteMap(target);
 
         if(!routes || !routes.has(propertyName)) {
             throw new Error(`@Route annotation is missing for "${propertyName}" of class "${target.constructor.name}" or annonation order is wrong.`);
@@ -54,6 +62,6 @@ export class ControllerService {
         const route = routes.get(propertyName);
         routes.set(propertyName, merge(route, { options }));
 
-        this.setRoutes(target, routes);
+        this.setRouteMap(target, routes);
     }
 }

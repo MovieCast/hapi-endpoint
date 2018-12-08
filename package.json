@@ -1,10 +1,11 @@
 {
   "name": "@moviecast/hapi-endpoint",
-  "version": "2.1.2",
+  "version": "3.0.1",
   "description": "A plugin for hapi to add versioned endpoints based on the file structure.",
-  "main": "lib/index.js",
+  "main": "src/index.js",
+  "typings": "src/index.d.ts",
   "directories": {
-    "lib": "lib"
+    "src": "src"
   },
   "scripts": {
     "test": "lab -a code -t 100 -L -v -S -T node_modules/lab-transform-typescript",
@@ -40,8 +41,9 @@
   },
   "devDependencies": {
     "@types/code": "^4.0.5",
+    "@types/glob": "^7.1.1",
     "@types/hapi": "^17.8.0",
-    "@types/lodash": "^4.14.119",
+    "@types/lodash": "^4.14.118",
     "code": "^5.2.0",
     "coveralls": "^3.0.2",
     "debug": "^3.1.0",
